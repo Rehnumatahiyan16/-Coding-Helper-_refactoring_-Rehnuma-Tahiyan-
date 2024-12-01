@@ -9,10 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-/**
- *
- * @author Mamun
- */
 public class mainEncode {
 
     public boolean exist = false;
@@ -21,7 +17,6 @@ public class mainEncode {
 
         Compress encode;
         String filename = mainfile(path);
-        // exit();
         exist = false;
         String compressFileName = compressFile(path);
 
@@ -47,7 +42,6 @@ public class mainEncode {
                 new Command().command();
             }
         } catch (Exception e) {
-            //   System.out.println("Invalid filename");
 
         }
 
@@ -96,12 +90,6 @@ public class mainEncode {
         return compressfilePath;
     }
 
-    /*public void exit() throws IOException {
-        if (sc.next().equals("break")) {
-      new Command().command();
-        }
-    }
-     */
     public boolean checkFileExist(String path) throws IOException {
         try {
             Path p = Paths.get(path);
@@ -110,8 +98,6 @@ public class mainEncode {
                 exist = true;
             } else {
                 exist = false;
-                //System.out.println("\tFile not exist");
-                // new Command().command();
 
             }
         } catch (Exception e) {

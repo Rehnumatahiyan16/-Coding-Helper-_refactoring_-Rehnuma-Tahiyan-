@@ -1,0 +1,28 @@
+Design Pattern Realization text file documentation:
+
+1. Singleton Pattern:
+   - Where it's used: In the DatabaseConnection class, we ensure only one instance of the connection is created.
+   - Description: The Singleton pattern ensures that a class has only one instance and provides a global point of access to it. This pattern is useful in cases where a single object is needed to coordinate actions across the system.
+
+2. Factory Method:
+   - Where it's used: In the VehicleFactory class, where different types of vehicles (Car, Bike) are created based on the provided input.
+   - Description: The Factory Method defines an interface for creating objects, but it’s the responsibility of the subclasses to decide which class to instantiate. It allows a class to defer instantiation to subclasses.
+
+3. Observer Pattern:
+   - Where it's used: In the StockPriceMonitor class, where multiple subscribers are notified when stock prices change.
+   - Description: The Observer pattern is used when one object (subject) needs to notify multiple dependent objects (observers) about changes in its state without knowing who or what those objects are.
+
+4. Strategy Pattern:
+   - Where it's used: In the PaymentProcessing class, which can select a payment method (CreditCard, PayPal) at runtime.
+   - Description: The Strategy pattern is used to define a family of algorithms, encapsulate each one, and make them interchangeable. The client can choose the appropriate algorithm at runtime.
+
+5. Decorator Pattern:
+   - Where it's used: In the NotificationService class, where different notification types (SMS, Email) are dynamically added to the base notification service.
+   - Description: The Decorator pattern allows behavior to be added to individual objects, without affecting the behavior of other objects from the same class.
+
+
+Code Inspection: They will need to thoroughly inspect the repository to spot instances where design patterns are being applied.
+Class and Method Analysis: They should analyze class responsibilities, object creation methods, and communication between objects.
+Pattern Matching: Compare identified structures with common design patterns they’ve studied.
+Final Documentation: They will finalize their findings and write the design patterns in the required text file.
+This process not only helps them learn how design patterns are implemented but also deepens their understanding of how these patterns make code more efficient, reusable, and maintainable.

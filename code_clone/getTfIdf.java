@@ -1,36 +1,50 @@
 package code_clone;
-import java.util.List;
-public class getTfIdf {
 
-    public double getTf(String[] fileContent, String term) {
-        double fileLength = fileContent.length;
-        int count = 0;
-        for (String s : fileContent) {
-            if (s.equalsIgnoreCase(term)) {
-                count++;
+import java.util.List;
+
+public class TfIdfCalculator {
+
+
+    public double calculateTf(String[] fileContent, String term) {
+        if (fileContent == null || term == null || fileContent.length == 0) {
+            return 0.0;
+        }
+
+        double termCount = 0;
+        for (String word : fileContent) {
+            if (word.equalsIgnoreCase(term)) {
+                termCount++;
             }
         }
-      //  System.out.println("tf="+count/fileLength);
-        return count / fileLength;
+        return termCount / fileContent.length;
     }
 
-    public double getIdf(List allFile, String term) {
-        double count = 0;
-        double idf;
-  
-        for (int i = 0; i < allFile.size(); i++) {
 
-            String[] fileContent;
-            fileContent = allFile.get(i).toString().split(" ");
-            for (String ss : fileContent) {
-            //   System.out.println(""+ss);
-                if (ss.equalsIgnoreCase(term)) {
-                    count++;
-                    break;
+    public double calculateIdf(List<String> allFiles, String term) {
+        if (allFiles == null || allFiles.isEmpty() || term == null) {
+            return 0.0;
+        }
 
+        int docCountContainingTerm = 0;
+
+        for (String fileContent : allFiles) {
+            if (fileContent == null || fileContent.isEmpty()) {
+                continue;
+            }
+
+            String[] words = fileContent.split("\\s+");
+            for (String word : words) {
+                if (word.equalsIgnoreCase(term)) {
+                    docCountContainingTerm++;
+                    break; // Move to the next file after finding the term
                 }
             }
         }
-        return 1 + Math.log(allFile.size() / count);
+
+        if (docCountContainingTerm == 0) {
+            return 0.0; // Avoid division by zero
+        }
+
+        return 1 + Math.log((double) allFiles.size() / docCountContainingTerm);
     }
 }
